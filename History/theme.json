@@ -1,0 +1,22 @@
+{
+    "typeface": {
+        "heading": {
+            "size": "20"
+        },
+        "subheading": {
+            "font": "HelveticaNeue-Bold",
+            "size": "15"
+        },
+        "body": {
+            "size": "15"
+        },
+        "secondary_body": {
+            "size": "16"
+        }
+        
+    },
+    "colors": {
+        "primary_background": "#0277BD",
+        "primary_text": "#FFFFFF",
+    }
+}

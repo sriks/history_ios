@@ -1,0 +1,45 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_5_0
+#warning "This project uses features only available in iOS SDK 5.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#endif
+
+#ifdef DEBUG
+
+/*!
+ Test only. Allows adding duplicate favorites.
+ */
+//#define TEST_ADD_DUPLICATE_FAVS
+
+/*!
+ Shows only startup screen.
+ */
+//#define TEST_SHOW_ONLY_STARTUP_SCREEN
+
+/*!
+ Launches the app directly into favorites without fetching today content.
+ */
+//#define TEST_SHOW_FAVS
+
+/*!
+ Shows atleast 3 lines of title.
+ **/
+//#define TEST_SHOW_LARGE_TITLE
+
+/*!
+ Simulates scenario where linked data is absent.
+ **/
+//#define TEST_WIHTOUT_LINKEDDATA
+
+#endif
