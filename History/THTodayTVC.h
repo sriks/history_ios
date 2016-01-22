@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THMasterSwipeInteractionDelegate.h"
 
 @class THTodayModel;
 @interface THTodayTVC : UITableViewController
+
 @property (nonatomic) THTodayModel* model;
 @property (nonatomic, assign) BOOL presentAsSavedItem;
+@property (nonatomic, weak) id<THMasterSwipeInteractionDelegate> interactionDelegate;
+
 @end

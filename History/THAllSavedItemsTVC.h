@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "THMasterSwipeInteractionDelegate.h"
 
 @interface THAllSavedItemsTVC : UITableViewController
+@property (nonatomic, weak) id<THMasterSwipeInteractionDelegate> interactionDelegate;
 @end

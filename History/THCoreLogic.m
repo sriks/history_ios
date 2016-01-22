@@ -15,7 +15,8 @@
 
 // NSUserDefaults keys
 static NSString* const kUserDefaultsKeySuiteName = @"group.com.deviceworks.History.Extensions";
-static NSString* const kUserDefaultsKeyPushNotificationAcceptanceStatus	=	@"com.deviceworks.pnacceptancestatus";
+static NSString* const kUserDefaultsKeyPushNotificationAcceptanceStatus	=	@"pnacceptancestatus";
+static NSString* const kUserDefaultsKeyIsNavTutorialShown = @"navtutorialshown";
 
 // Push notification acceptance type
 typedef enum : NSUInteger {
@@ -93,6 +94,10 @@ typedef enum : NSUInteger {
     return [self.dataManager isTodayModelFavorited:model];
 }
 
+- (NSUInteger)favoritesCount {
+    return [self.dataManager countOfFavorites];
+}
+
 - (id<THDataSourceProtocol>) dataSourceForFavorites {
     return [self.dataManager dataSourceForFavorites];
 }
@@ -141,6 +146,16 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 - (void)application:(UIApplication *)application
 didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 	[self setPushNotificationAcceptanceStatus:PushNotificationAcceptanceDenied];
+}
+
+#pragma mark - Tutorial
+
+- (BOOL)shouldShowNavigationTutorial {
+    return ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsKeyIsNavTutorialShown];
+}
+
+- (void)didPresentNavigationTutorial {
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserDefaultsKeyIsNavTutorialShown];
 }
 
 #pragma mark Private

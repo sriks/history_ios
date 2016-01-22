@@ -38,6 +38,9 @@ typedef enum : NSUInteger {
     [self.core.dataSourceForFavorites addContentChangeObserver:self
                                                     forKeyPath:kKeyPathSavedItemsAdded
                                                        context:nil];
+    [self.core.dataSourceForFavorites addContentChangeObserver:self
+                                                    forKeyPath:kKeyPathSavedItemsRemoved
+                                                       context:nil];
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.allowsSelection = YES;
@@ -108,33 +111,14 @@ typedef enum : NSUInteger {
 
 - (void)tableView:(UITableView *)tableView
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == SECTION_SAVED_ITEMS) {
-        [self performSegueWithIdentifier:SEGUE_SHOW_SAVED_ITEM sender:indexPath];
+    if (indexPath.section == SECTION_SAVED_ITEMS && self.interactionDelegate) {
+		THTodayModel* model = [self.core.dataSourceForFavorites savedItemModelAtIndex:(int)indexPath.row];
+		[self.interactionDelegate didSelectSavedItem:model];
     }
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == SECTION_SAVED_ITEMS) {
-        return YES;
-    } else {
-        return NO;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(editingStyle == UITableViewCellEditingStyleDelete) {
-        THTodayModel* model = [self.core.dataSourceForFavorites savedItemModelAtIndex:indexPath.row];
-        NSError* err;
-        [self.core removeFromFavorites:model error:&err];
-        if (err) {
-            NSLog(@"error removing favorites: %@", err);
-        } else {
-            if ([self.core.dataSourceForFavorites savedItemsCount])
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-            else
-                [self.tableView reloadData];
-        }
-    }
+    return NO;
 }
 
 #pragma mark - Navigation
@@ -143,7 +127,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([segue.identifier isEqualToString:SEGUE_SHOW_SAVED_ITEM]) {
         THTodayTVC* todayTVC = (THTodayTVC*)segue.destinationViewController;
         NSIndexPath* indexPath = (NSIndexPath*)sender;
-        NSLog(@"prepareForSegue section:%ld,row:%ld", (long)indexPath.section, indexPath.row);
         todayTVC.model = [self.core.dataSourceForFavorites savedItemModelAtIndex:(int)indexPath.row];
         todayTVC.presentAsSavedItem = YES;
     }

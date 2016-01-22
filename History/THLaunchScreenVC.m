@@ -11,6 +11,7 @@
 #import "THTheme.h"
 
 static NSString* const SEGUE_SHOW_TODAY =   @"show_today";
+static NSString* const SEGUE_SHOW_MASTER_SWIPE = @"show_master_swipe";
 
 @interface THLaunchScreenVC ()
 @property (nonatomic) THTodayModel* todayModel;
@@ -27,7 +28,7 @@ static NSString* const SEGUE_SHOW_TODAY =   @"show_today";
     [[THCoreLogic sharedInstance] fetchTodayContentWithCompletionBlock:^(THTodayModel *todayModel, NSError *error) {
         if (todayModel) {
             welf.todayModel = todayModel;
-            [welf performSegueWithIdentifier:SEGUE_SHOW_TODAY sender:nil];
+            [welf performSegueWithIdentifier:SEGUE_SHOW_MASTER_SWIPE sender:nil];
         } else {
             // TODO: Show error dialog and navigate to saved items.
         }
@@ -41,8 +42,12 @@ static NSString* const SEGUE_SHOW_TODAY =   @"show_today";
 
 #pragma mark - Navigation
 
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+	return YES;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:SEGUE_SHOW_TODAY]) {
+    if ([segue.identifier isEqualToString:SEGUE_SHOW_MASTER_SWIPE]) {
         // Using performSelector for loose coupling. Ideal is to let destination implement a protocol.
         UIViewController* dest = segue.destinationViewController;
         SEL modelSetter = NSSelectorFromString(@"setModel:");

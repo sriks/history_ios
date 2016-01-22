@@ -26,6 +26,7 @@ typedef void(^THFetchTodayContentBlock)(THTodayModel* todayModel, NSError* error
 - (BOOL)addToFavorites:(THTodayModel*)model error:(NSError**)err;
 - (BOOL)removeFromFavorites:(THTodayModel*)model error:(NSError**)err;
 - (BOOL)isTodayModelFavorited:(THTodayModel*)model;
+- (NSUInteger)favoritesCount;
 - (id<THDataSourceProtocol>) dataSourceForFavorites;
 
 #pragma mark - UIApplication lifecycle
@@ -38,4 +39,9 @@ typedef void(^THFetchTodayContentBlock)(THTodayModel* todayModel, NSError* error
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
 - (void)application:(UIApplication *)application
 didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
+
+#pragma mark - Tutorial
+- (BOOL)shouldShowNavigationTutorial;
+- (void)didPresentNavigationTutorial;
+
 @end

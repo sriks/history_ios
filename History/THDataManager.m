@@ -117,8 +117,10 @@ NSString* const kDataSourceFavorites    =   @"favorites";
 
 - (BOOL)unFavoriteTodayModel:(THTodayModel*)todayModel error:(NSError**)error {
     NSManagedObject* objToDelete = [self managedObjectForTodayModel:todayModel error:error];
-    if(!objToDelete)
+    if(!objToDelete) {
+        *error = [NSError errorWithDomain:@"model not found" code:NSNotFound userInfo:nil];
         return NO;
+    }
     [self.managedObjectContext deleteObject:objToDelete];
     return [self saveContext:error];
 }

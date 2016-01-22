@@ -6,12 +6,15 @@
 //  Copyright © 2015 Srikanth Sombhatla. All rights reserved.
 //
 
+// TODO: Doing a hell lot of stuff here (read massive MVC). Refactor please.
+
 #import "THTodayTVC.h"
 #import "THTodayModel.h"
 #import "THTodayContentTableViewCell.h"
 #import "THLinkedItemViewCell.h"
 #import "THCoreLogic.h"
 #import "THTheme.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 static const int TAG_TITLE_LEVEL_1          =   65;
 static const int TAG_TITLE_LEVEL_2          =   66;
@@ -31,13 +34,13 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
     SECTION_LINKEDDATA_HEADING,
     SECTION_LINKEDDATA,
 	SECTION_PUSH_NOTIF,
+    SECTION_DELETE,
     // This should always be last item.
     TOTAL_SECTIONS
 };
 
 @interface THTodayTVC () <UIScrollViewDelegate>
 @property (nonatomic) THCoreLogic* core;
-@property (nonatomic, assign) CGFloat hostViewHeight;
 @property (nonatomic, assign) CGFloat lastScrollYPosition;
 @property (nonatomic, assign) BOOL showPNBuildup;
 @end
@@ -49,27 +52,30 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
     self.core = [THCoreLogic sharedInstance];
     self.tableView.estimatedRowHeight = 44;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.allowsSelection = NO;
-    
+    self.tableView.allowsSelection = YES;
+    self.tableView.showsVerticalScrollIndicator = NO;
     UITapGestureRecognizer* doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                        action:@selector(didDoubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
-    UISwipeGestureRecognizer* swipeGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self
-                                                                                       action:@selector(didSwipe:)];
-    swipeGesture.direction = ((self.presentAsSavedItem)?(UISwipeGestureRecognizerDirectionRight):(UISwipeGestureRecognizerDirectionLeft));
     [self.tableView addGestureRecognizer:doubleTapGesture];
-    [self.tableView addGestureRecognizer:swipeGesture];
     self.tableView.backgroundColor = [THTheme primaryBackgroundColor];
 	self.showPNBuildup = [self.core shouldShowPushNotificationBuildup];
+    
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.hostViewHeight = self.tableView.frame.size.height;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!self.presentAsSavedItem && [self.core favoritesCount]) {
+        [self.interactionDelegate showFavoritesHint];
+    } else {
+        if ([self.core shouldShowNavigationTutorial] && !self.presentAsSavedItem) {
+            [self presentNavigationTutorial];
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -78,7 +84,13 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
     if (self.model.linkedItemsCount) {
         return TOTAL_SECTIONS;
     } else {
-        return SECTION_CONTENT_WITHOUT_LINKEDDATA + 1;
+        // 1: Only push notification
+        // 2: Push notification + Delete
+        if (self.presentAsSavedItem) {
+            return SECTION_CONTENT_WITHOUT_LINKEDDATA + 2;
+        } else {
+            return SECTION_CONTENT_WITHOUT_LINKEDDATA + 1;
+        }
     }
 }
 
@@ -87,7 +99,9 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
         return self.model.linkedItemsCount;
     } else if (SECTION_PUSH_NOTIF == section) {
 		return self.showPNBuildup?1:0;
-	} else {
+    } else if (SECTION_DELETE == section) {
+        return self.presentAsSavedItem?1:0;
+    } else {
         return 1;
     }
 }
@@ -117,8 +131,52 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
         button = (UIButton*)[cell viewWithTag:TAG_PUSH_NOTIF_NO];
         [THTheme themeButton:button];
         return cell;
+    } else if (SECTION_DELETE == indexPath.section) {
+        UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+        cell.textLabel.text = @"Delete this favorite";
+        cell.backgroundColor = [THTheme primaryBackgroundColor];
+        cell.textLabel.textColor = [THTheme primaryTextColor];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        return cell;
     }
     return nil;
+}
+
+- (void)tableView:(UITableView *)tableView
+  willDisplayCell:(UITableViewCell *)cell
+forRowAtIndexPath:(NSIndexPath *)indexPath {
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (SECTION_DELETE == indexPath.section) {
+        
+        // TODO: Move this to view presenter.
+        UIAlertController* confirmDeleteAlert = [UIAlertController alertControllerWithTitle:nil
+                                                                                    message:nil
+                                                                             preferredStyle:UIAlertControllerStyleActionSheet];
+        UIAlertAction* deleteAction = [UIAlertAction actionWithTitle:@"Delete"
+                                                               style:UIAlertActionStyleDestructive
+                                                             handler:^(UIAlertAction * _Nonnull action)
+        {
+            NSError* error;
+            if([self.core removeFromFavorites:self.model error:&error]) {
+                [self.interactionDelegate returnFromSavedItemViewController:self];
+            } else {
+                NSLog(@"error deleting favorite:%@",error);
+                UIAlertView* errorAlert = [[UIAlertView alloc] initWithTitle:@"History"
+                                                                     message:@"Cannot delete"
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"OK"
+                                                           otherButtonTitles:nil];
+                [errorAlert show];
+            }
+        }];
+        
+        [confirmDeleteAlert addAction:deleteAction];
+        [confirmDeleteAlert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:nil]];
+        [self presentViewController:confirmDeleteAlert animated:YES completion:nil];
+    }
 }
 
 #pragma mark - Navigation
@@ -131,24 +189,29 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
 #pragma mark - Gesture handlers
 
 - (void)didDoubleTap:(UIGestureRecognizer*)gesture {
+    // TODO: Move to view presenter
     NSError* err;
     if (self.presentAsSavedItem)
         return;
-    
+
+    NSUInteger hudsFound = [MBProgressHUD allHUDsForView:self.view].count;
+    MBProgressHUD* hud = nil;
+    if (hudsFound == 0) {
+        UIWindow *window = [[[UIApplication sharedApplication] windows] lastObject];
+        hud = [MBProgressHUD showHUDAddedTo:window animated:YES];
+    }
     [self.core addToFavorites:self.model error:&err];
     if (err) {
         NSLog(@"Error adding to favorites: %@",err);
+        hud.detailsLabelText = @"Sorry, something went wrong!";
+    } else {
+        hud.labelText = @"Added to favorites!";
+        hud.detailsLabelText = @"Swipe to see your favorites.";
     }
-    // TODO: Show feedback animation. 
-}
-
-- (void)didSwipe:(UIGestureRecognizer*)gesture {
-    UISwipeGestureRecognizer* theGesture = (UISwipeGestureRecognizer*)gesture;
-    if (self.presentAsSavedItem && theGesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        [self.navigationController popViewControllerAnimated:YES];
-    } else if (!self.presentAsSavedItem && theGesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-        [self performSegueWithIdentifier:SEGUE_ID_SHOW_SAVED_ITEMS sender:nil];
-    }
+    hud.mode = MBProgressHUDModeText;
+    hud.dimBackground = YES;
+    [hud show:YES];
+    [hud hide:YES afterDelay:2.5];
 }
 
 #pragma mark - Push notification request handlers
@@ -168,20 +231,19 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
 				  withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-//#pragma mark ScrollViewDelegate
-//
-//- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-//    self.lastScrollYPosition = scrollView.contentOffset.y;
-//}
-//
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if(scrollView.contentOffset.y < self.lastScrollYPosition) {
-//        CGFloat scrollLengthSoFar = fabsf(scrollView.contentOffset.y);
-//        NSLog(@"scrolling dir DOWN %f %f", scrollView.contentOffset.y, self.lastScrollYPosition);
-//    } else {
-//        NSLog(@"scrolling dir UP %f %f", scrollView.contentOffset.y, self.lastScrollYPosition);
-//    }
-//}
+#pragma mark - Navigation tutorial
 
+- (void)presentNavigationTutorial {
+    NSString* message = @"Double tap on home screen to add to your favorites.\n\nSwipe to left to see your favorites.";
+    UIAlertController* tutorial = [UIAlertController alertControllerWithTitle:@"History"
+                                                                      message:message
+                                                               preferredStyle:UIAlertControllerStyleAlert];
+    [tutorial addAction:[UIAlertAction actionWithTitle:@"Got it!" style:UIAlertActionStyleDefault
+                                               handler:^(UIAlertAction * _Nonnull action)
+    {
+        [self.core didPresentNavigationTutorial];
+    }]];
+    [self presentViewController:tutorial animated:YES completion:nil];
+}
 
 @end
