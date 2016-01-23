@@ -121,6 +121,7 @@ NSString* const kDataSourceFavorites    =   @"favorites";
         *error = [NSError errorWithDomain:@"model not found" code:NSNotFound userInfo:nil];
         return NO;
     }
+    DevLog(@"%s %@",__func__, [objToDelete valueForKey:kKeyTitle]);
     [self.managedObjectContext deleteObject:objToDelete];
     return [self saveContext:error];
 }
@@ -177,9 +178,11 @@ NSString* const kDataSourceFavorites    =   @"favorites";
                                           error:(NSError**)error {
     
     NSPredicate* predicate = [NSPredicate predicateWithFormat:@"%K == %@", kObjId, todayModel.objId];
+    DevLog(@"%s predicate:%@",__func__, predicate);
     NSFetchRequest* fr = [NSFetchRequest fetchRequestWithEntityName:kTableNameFavorites];
     fr.predicate = predicate;
     NSArray* results = [self.managedObjectContext executeFetchRequest:fr error:error];
+    DevLog(@"%s result:%lu", __func__, (unsigned long)results.count);
     return [results firstObject];
 }
 

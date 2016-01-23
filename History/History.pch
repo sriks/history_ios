@@ -17,6 +17,19 @@
 
 #ifdef DEBUG
 
+
+
+/*!
+ Detailed logging
+ */
+#define LOG_VERBOSE
+
+#ifdef LOG_VERBOSE
+#define DevLog(...) { NSLog(__VA_ARGS__); }
+#else
+#define DevLog(...) {}
+#endif
+
 /*!
  Test only. Allows adding duplicate favorites.
  */

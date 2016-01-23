@@ -12,6 +12,8 @@
 
 + (UIColor*)primaryTextColor;
 + (UIColor*)primaryBackgroundColor;
++ (UIColor*)allFavoritesBackgroundColor;
++ (UIColor*)aFavoriteBackgroundColor;
 + (void)themeButtonWithDecoration:(UIButton*)button;
 + (void)themeButton:(UIButton*)button;
 @end

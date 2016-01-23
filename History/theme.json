@@ -18,5 +18,7 @@
     "colors": {
         "primary_background": "#0277BD",
         "primary_text": "#FFFFFF",
+        "all_favs_background": "#2E7D32",
+        "a_fav_background": "#00838F"        
     }
 }

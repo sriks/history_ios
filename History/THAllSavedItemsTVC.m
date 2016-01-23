@@ -50,7 +50,7 @@ typedef enum : NSUInteger {
                                                                                        action:@selector(didSwipe:)];
     swipeGesture.direction = UISwipeGestureRecognizerDirectionRight;
     [self.tableView addGestureRecognizer:swipeGesture];
-    self.tableView.backgroundColor = [THTheme primaryBackgroundColor];
+    self.tableView.backgroundColor = [THTheme allFavoritesBackgroundColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,7 +77,7 @@ typedef enum : NSUInteger {
         case SECTION_SAVED_ITEMS:
             return [self.core.dataSourceForFavorites savedItemsCount];
         default:
-            NSLog(@"THAllSavedItemsTVC unhandled section index %ld", section);
+            NSLog(@"THAllSavedItemsTVC unhandled section index %ld", (long)section);
             return 0;
     }
 }

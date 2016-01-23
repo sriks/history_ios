@@ -19,6 +19,14 @@
     return [DCTheme colorWithName:@"primary_background"];
 }
 
++ (UIColor*)allFavoritesBackgroundColor {
+    return [DCTheme colorWithName:@"all_favs_background"];
+}
+
++ (UIColor*)aFavoriteBackgroundColor {
+    return [DCTheme colorWithName:@"a_fav_background"];
+}
+
 + (void)themeButtonWithDecoration:(UIButton*)button {
     [THTheme themeButton:button];
     button.layer.cornerRadius = 8;

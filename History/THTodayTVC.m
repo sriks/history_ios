@@ -58,7 +58,12 @@ typedef NS_ENUM(NSUInteger, THContentSectionIndex) {
                                                                                        action:@selector(didDoubleTap:)];
     doubleTapGesture.numberOfTapsRequired = 2;
     [self.tableView addGestureRecognizer:doubleTapGesture];
-    self.tableView.backgroundColor = [THTheme primaryBackgroundColor];
+    if (self.presentAsSavedItem) {
+        self.tableView.backgroundColor = [THTheme allFavoritesBackgroundColor];
+    } else {
+        self.tableView.backgroundColor = [THTheme primaryBackgroundColor];
+    }
+    
 	self.showPNBuildup = [self.core shouldShowPushNotificationBuildup];
     
 }

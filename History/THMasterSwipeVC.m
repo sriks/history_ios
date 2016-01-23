@@ -155,7 +155,7 @@ static NSString* const kStoryboardIdSavedItems			=		@"all_saved_items";
 - (THTodayTVC*)todayViewControllerForModel:(THTodayModel*)model isSavedItem:(BOOL)isSavedItem {
 	THTodayTVC* todayTVC = (THTodayTVC*)[[UIStoryboard storyboardWithName:kStoryboardNameToday bundle:nil]
 					 instantiateViewControllerWithIdentifier:kStoryboardIdToday];
-	todayTVC.model = self.model;
+	todayTVC.model = model;
 	todayTVC.interactionDelegate = self;
     todayTVC.presentAsSavedItem = isSavedItem;
 	return todayTVC;

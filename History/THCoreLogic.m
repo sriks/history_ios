@@ -110,6 +110,7 @@ typedef enum : NSUInteger {
 		PushNotificationAcceptanceStatus status = [application isRegisteredForRemoteNotifications]?(PushNotificationAcceptanceAccepted):(PushNotificationAcceptanceDenied);
 		[self setPushNotificationAcceptanceStatus:status];
 	}
+    application.applicationIconBadgeNumber = 0;
 }
 
 #pragma mark - Push Notifications
