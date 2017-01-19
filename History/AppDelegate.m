@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "THCoreLogic.h"
+#import "THPushManager.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [[THPushManager sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     [application setStatusBarHidden:YES];
     [[UILabel appearance] setTextColor:[UIColor whiteColor]];
     return YES;
@@ -49,6 +50,7 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 	[[THCoreLogic sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
+    [[THPushManager sharedInstance] application:application didRegisterForRemoteNotificationsWithDeviceToken:deviceToken];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
