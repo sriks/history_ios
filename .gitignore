@@ -17,6 +17,9 @@ DerivedData
 *.ipa
 *.xcuserstate
 
+# configurations
+./History/Dependencies/UrbanAirship/AirshipConfig.plist
+
 # CocoaPods
 #
 # We recommend against adding the Pods directory to your .gitignore. However

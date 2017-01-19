@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		AD5F06051E2B039400AAF520 /* AirshipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD5F05FE1E2B036900AAF520 /* AirshipKit.framework */; };
 		AD5F06061E2B039400AAF520 /* AirshipKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AD5F05FE1E2B036900AAF520 /* AirshipKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		AD5F060B1E2B03E900AAF520 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD5F060A1E2B03E900AAF520 /* AirshipConfig.plist */; };
 		AD6900841BECD0150047260F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900831BECD0150047260F /* main.m */; };
 		AD6900871BECD0150047260F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900861BECD0150047260F /* AppDelegate.m */; };
 		AD6900A01BECD0150047260F /* HistoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AD69009F1BECD0150047260F /* HistoryTests.m */; };
@@ -50,6 +49,7 @@
 		AD6901321BEEF4660047260F /* THLinkedItemViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6901311BEEF4660047260F /* THLinkedItemViewCell.m */; };
 		ADF0AC9B1E2F76630083BAD2 /* THUrbanAirship.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF0AC9A1E2F76630083BAD2 /* THUrbanAirship.m */; };
 		ADF0AC9E1E2F78950083BAD2 /* THPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF0AC9D1E2F78950083BAD2 /* THPushManager.m */; };
+		ADF0ACA01E30BED40083BAD2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADF0AC9F1E30BED40083BAD2 /* AirshipConfig.plist */; };
 		ADFE4C451BF051FE00E14DE1 /* THAllSavedItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C441BF051FE00E14DE1 /* THAllSavedItemsTVC.m */; };
 		ADFE4C481BF080EC00E14DE1 /* THSavedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C471BF080EC00E14DE1 /* THSavedItemCell.m */; };
 		ADFE4C4D1BF0A50700E14DE1 /* THTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C4C1BF0A50700E14DE1 /* THTheme.m */; };
@@ -124,7 +124,6 @@
 
 /* Begin PBXFileReference section */
 		AD5F05F61E2B036800AAF520 /* AirshipKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirshipKit.xcodeproj; path = History/Dependencies/UrbanAirship/AirshipKit/AirshipKit.xcodeproj; sourceTree = "<group>"; };
-		AD5F060A1E2B03E900AAF520 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AirshipConfig.plist; path = History/Dependencies/UrbanAirship/AirshipConfig.plist; sourceTree = "<group>"; };
 		AD5F060C1E2B04D100AAF520 /* History.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = History.entitlements; sourceTree = "<group>"; };
 		AD69007F1BECD0150047260F /* History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = History.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD6900831BECD0150047260F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -204,6 +203,7 @@
 		ADF0AC9A1E2F76630083BAD2 /* THUrbanAirship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THUrbanAirship.m; sourceTree = "<group>"; };
 		ADF0AC9C1E2F78950083BAD2 /* THPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPushManager.h; sourceTree = "<group>"; };
 		ADF0AC9D1E2F78950083BAD2 /* THPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPushManager.m; sourceTree = "<group>"; };
+		ADF0AC9F1E30BED40083BAD2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AirshipConfig.plist; path = History/Dependencies/UrbanAirship/AirshipConfig.plist; sourceTree = "<group>"; };
 		ADFE4C431BF051FE00E14DE1 /* THAllSavedItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAllSavedItemsTVC.h; sourceTree = "<group>"; };
 		ADFE4C441BF051FE00E14DE1 /* THAllSavedItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAllSavedItemsTVC.m; sourceTree = "<group>"; };
 		ADFE4C461BF080EC00E14DE1 /* THSavedItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSavedItemCell.h; sourceTree = "<group>"; };
@@ -431,7 +431,7 @@
 		AD69011B1BECE2940047260F /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				AD5F060A1E2B03E900AAF520 /* AirshipConfig.plist */,
+				ADF0AC9F1E30BED40083BAD2 /* AirshipConfig.plist */,
 				AD6901191BECE21F0047260F /* SystemConfiguration.framework */,
 				AD6901171BECE2010047260F /* AudioToolbox.framework */,
 				AD6901151BECE1E40047260F /* CoreAudio.framework */,
@@ -642,7 +642,7 @@
 				AD69011D1BEDD2C20047260F /* Today.storyboard in Resources */,
 				ADFE4C4F1BF5D01200E14DE1 /* Images.xcassets in Resources */,
 				AD69012F1BEE1D090047260F /* LaunchScreen.storyboard in Resources */,
-				AD5F060B1E2B03E900AAF520 /* AirshipConfig.plist in Resources */,
+				ADF0ACA01E30BED40083BAD2 /* AirshipConfig.plist in Resources */,
 				AD6900EB1BECDE250047260F /* theme.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
