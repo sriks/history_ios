@@ -9,5 +9,4 @@ A protocol defining server access.
 @protocol THServerProtocol <NSObject>
 @required
 - (void)fetchTodayWithCompletionBlock:(void(^)(THTodayModel* model, NSError* error))completionBlock;
-- (void)handlePushNotificationDeviceToken:(NSData*)deviceToken;
 @end

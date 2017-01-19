@@ -17,7 +17,6 @@
 		AD6900CB1BECDACE0047260F /* History.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AD6900C61BECDACE0047260F /* History.xcdatamodeld */; };
 		AD6900D11BECDD970047260F /* NSManagedObject+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900D01BECDD970047260F /* NSManagedObject+Converter.m */; };
 		AD6900D41BECDDB90047260F /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900D31BECDDB90047260F /* NSString+Additions.m */; };
-		AD6900D81BECDDD40047260F /* PFObject+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900D71BECDDD40047260F /* PFObject+Additions.m */; };
 		AD6900DB1BECDDEB0047260F /* THConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900DA1BECDDEB0047260F /* THConstants.m */; };
 		AD6900E01BECDE030047260F /* THCoreConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900DD1BECDE030047260F /* THCoreConstants.m */; };
 		AD6900E11BECDE030047260F /* THCoreLogic.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900DF1BECDE030047260F /* THCoreLogic.m */; };
@@ -25,17 +24,9 @@
 		AD6900E91BECDE140047260F /* THDataSourceCD.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900E61BECDE140047260F /* THDataSourceCD.m */; };
 		AD6900EB1BECDE250047260F /* theme.json in Resources */ = {isa = PBXBuildFile; fileRef = AD6900EA1BECDE250047260F /* theme.json */; };
 		AD6900EF1BECDE4B0047260F /* THLinkedItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900EE1BECDE4B0047260F /* THLinkedItemModel.m */; };
-		AD6900F21BECDE5D0047260F /* THParseServer.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900F11BECDE5D0047260F /* THParseServer.m */; };
 		AD6900F61BECDE6B0047260F /* THServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900F41BECDE6B0047260F /* THServerManager.m */; };
 		AD6900FC1BECDEB40047260F /* THTodayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900F91BECDEB40047260F /* THTodayModel.m */; };
 		AD6900FD1BECDEB40047260F /* THTodayModel+Converter.m in Sources */ = {isa = PBXBuildFile; fileRef = AD6900FB1BECDEB40047260F /* THTodayModel+Converter.m */; };
-		AD6901071BECE11A0047260F /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901001BECE11A0047260F /* Bolts.framework */; };
-		AD6901081BECE11A0047260F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901011BECE11A0047260F /* Parse.framework */; };
-		AD6901091BECE11A0047260F /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901021BECE11A0047260F /* ParseCrashReporting.framework */; };
-		AD69010A1BECE11A0047260F /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901031BECE11A0047260F /* ParseFacebookUtils.framework */; };
-		AD69010B1BECE11A0047260F /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901041BECE11A0047260F /* ParseFacebookUtilsV4.framework */; };
-		AD69010C1BECE11A0047260F /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901051BECE11A0047260F /* ParseTwitterUtils.framework */; };
-		AD69010D1BECE11A0047260F /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901061BECE11A0047260F /* ParseUI.framework */; };
 		AD69010F1BECE1530047260F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD69010E1BECE1530047260F /* CFNetwork.framework */; };
 		AD6901111BECE1690047260F /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901101BECE1690047260F /* CoreLocation.framework */; };
 		AD6901141BECE1CC0047260F /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6901131BECE1CC0047260F /* libsqlite3.tbd */; };
@@ -50,6 +41,7 @@
 		ADF0AC9B1E2F76630083BAD2 /* THUrbanAirship.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF0AC9A1E2F76630083BAD2 /* THUrbanAirship.m */; };
 		ADF0AC9E1E2F78950083BAD2 /* THPushManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF0AC9D1E2F78950083BAD2 /* THPushManager.m */; };
 		ADF0ACA01E30BED40083BAD2 /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADF0AC9F1E30BED40083BAD2 /* AirshipConfig.plist */; };
+		ADF0ACA41E30C1540083BAD2 /* THAWSServer.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF0ACA31E30C1540083BAD2 /* THAWSServer.m */; };
 		ADFE4C451BF051FE00E14DE1 /* THAllSavedItemsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C441BF051FE00E14DE1 /* THAllSavedItemsTVC.m */; };
 		ADFE4C481BF080EC00E14DE1 /* THSavedItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C471BF080EC00E14DE1 /* THSavedItemCell.m */; };
 		ADFE4C4D1BF0A50700E14DE1 /* THTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = ADFE4C4C1BF0A50700E14DE1 /* THTheme.m */; };
@@ -146,8 +138,6 @@
 		AD6900D01BECDD970047260F /* NSManagedObject+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Converter.m"; sourceTree = "<group>"; };
 		AD6900D21BECDDB90047260F /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
 		AD6900D31BECDDB90047260F /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
-		AD6900D61BECDDD40047260F /* PFObject+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PFObject+Additions.h"; sourceTree = "<group>"; };
-		AD6900D71BECDDD40047260F /* PFObject+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PFObject+Additions.m"; sourceTree = "<group>"; };
 		AD6900D91BECDDEB0047260F /* THConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THConstants.h; sourceTree = "<group>"; };
 		AD6900DA1BECDDEB0047260F /* THConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THConstants.m; sourceTree = "<group>"; };
 		AD6900DC1BECDE030047260F /* THCoreConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THCoreConstants.h; sourceTree = "<group>"; };
@@ -163,8 +153,6 @@
 		AD6900EA1BECDE250047260F /* theme.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = theme.json; sourceTree = "<group>"; };
 		AD6900ED1BECDE4B0047260F /* THLinkedItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THLinkedItemModel.h; sourceTree = "<group>"; };
 		AD6900EE1BECDE4B0047260F /* THLinkedItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THLinkedItemModel.m; sourceTree = "<group>"; };
-		AD6900F01BECDE5D0047260F /* THParseServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THParseServer.h; sourceTree = "<group>"; };
-		AD6900F11BECDE5D0047260F /* THParseServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THParseServer.m; sourceTree = "<group>"; };
 		AD6900F31BECDE6B0047260F /* THServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THServerManager.h; sourceTree = "<group>"; };
 		AD6900F41BECDE6B0047260F /* THServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THServerManager.m; sourceTree = "<group>"; };
 		AD6900F51BECDE6B0047260F /* THServerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THServerProtocol.h; sourceTree = "<group>"; };
@@ -173,13 +161,6 @@
 		AD6900F91BECDEB40047260F /* THTodayModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THTodayModel.m; sourceTree = "<group>"; };
 		AD6900FA1BECDEB40047260F /* THTodayModel+Converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "THTodayModel+Converter.h"; sourceTree = "<group>"; };
 		AD6900FB1BECDEB40047260F /* THTodayModel+Converter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "THTodayModel+Converter.m"; sourceTree = "<group>"; };
-		AD6901001BECE11A0047260F /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = History/Dependencies/Parse/Bolts.framework; sourceTree = "<group>"; };
-		AD6901011BECE11A0047260F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = History/Dependencies/Parse/Parse.framework; sourceTree = "<group>"; };
-		AD6901021BECE11A0047260F /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = History/Dependencies/Parse/ParseCrashReporting.framework; sourceTree = "<group>"; };
-		AD6901031BECE11A0047260F /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = History/Dependencies/Parse/ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		AD6901041BECE11A0047260F /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtilsV4.framework; path = History/Dependencies/Parse/ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		AD6901051BECE11A0047260F /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseTwitterUtils.framework; path = History/Dependencies/Parse/ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		AD6901061BECE11A0047260F /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = History/Dependencies/Parse/ParseUI.framework; sourceTree = "<group>"; };
 		AD69010E1BECE1530047260F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		AD6901101BECE1690047260F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		AD6901131BECE1CC0047260F /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -204,6 +185,8 @@
 		ADF0AC9C1E2F78950083BAD2 /* THPushManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPushManager.h; sourceTree = "<group>"; };
 		ADF0AC9D1E2F78950083BAD2 /* THPushManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPushManager.m; sourceTree = "<group>"; };
 		ADF0AC9F1E30BED40083BAD2 /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = AirshipConfig.plist; path = History/Dependencies/UrbanAirship/AirshipConfig.plist; sourceTree = "<group>"; };
+		ADF0ACA21E30C1540083BAD2 /* THAWSServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAWSServer.h; sourceTree = "<group>"; };
+		ADF0ACA31E30C1540083BAD2 /* THAWSServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAWSServer.m; sourceTree = "<group>"; };
 		ADFE4C431BF051FE00E14DE1 /* THAllSavedItemsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THAllSavedItemsTVC.h; sourceTree = "<group>"; };
 		ADFE4C441BF051FE00E14DE1 /* THAllSavedItemsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THAllSavedItemsTVC.m; sourceTree = "<group>"; };
 		ADFE4C461BF080EC00E14DE1 /* THSavedItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSavedItemCell.h; sourceTree = "<group>"; };
@@ -223,14 +206,7 @@
 				AD6901141BECE1CC0047260F /* libsqlite3.tbd in Frameworks */,
 				AD6901111BECE1690047260F /* CoreLocation.framework in Frameworks */,
 				AD69010F1BECE1530047260F /* CFNetwork.framework in Frameworks */,
-				AD6901071BECE11A0047260F /* Bolts.framework in Frameworks */,
 				AD5F06051E2B039400AAF520 /* AirshipKit.framework in Frameworks */,
-				AD6901081BECE11A0047260F /* Parse.framework in Frameworks */,
-				AD6901091BECE11A0047260F /* ParseCrashReporting.framework in Frameworks */,
-				AD69010A1BECE11A0047260F /* ParseFacebookUtils.framework in Frameworks */,
-				AD69010B1BECE11A0047260F /* ParseFacebookUtilsV4.framework in Frameworks */,
-				AD69010C1BECE11A0047260F /* ParseTwitterUtils.framework in Frameworks */,
-				AD69010D1BECE11A0047260F /* ParseUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,25 +372,14 @@
 		AD6900CE1BECDB110047260F /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				ADF0ACA11E30C1360083BAD2 /* AWS */,
 				AD6900D21BECDDB90047260F /* NSString+Additions.h */,
 				AD6900D31BECDDB90047260F /* NSString+Additions.m */,
 				AD6900F31BECDE6B0047260F /* THServerManager.h */,
 				AD6900F41BECDE6B0047260F /* THServerManager.m */,
 				AD6900F51BECDE6B0047260F /* THServerProtocol.h */,
-				AD6900D51BECDDC70047260F /* ParseImplementation */,
 			);
 			name = Server;
-			sourceTree = "<group>";
-		};
-		AD6900D51BECDDC70047260F /* ParseImplementation */ = {
-			isa = PBXGroup;
-			children = (
-				AD6900F01BECDE5D0047260F /* THParseServer.h */,
-				AD6900F11BECDE5D0047260F /* THParseServer.m */,
-				AD6900D61BECDDD40047260F /* PFObject+Additions.h */,
-				AD6900D71BECDDD40047260F /* PFObject+Additions.m */,
-			);
-			name = ParseImplementation;
 			sourceTree = "<group>";
 		};
 		AD6900EC1BECDE3A0047260F /* Models */ = {
@@ -438,13 +403,6 @@
 				AD6901131BECE1CC0047260F /* libsqlite3.tbd */,
 				AD6901101BECE1690047260F /* CoreLocation.framework */,
 				AD69010E1BECE1530047260F /* CFNetwork.framework */,
-				AD6901001BECE11A0047260F /* Bolts.framework */,
-				AD6901011BECE11A0047260F /* Parse.framework */,
-				AD6901021BECE11A0047260F /* ParseCrashReporting.framework */,
-				AD6901031BECE11A0047260F /* ParseFacebookUtils.framework */,
-				AD6901041BECE11A0047260F /* ParseFacebookUtilsV4.framework */,
-				AD6901051BECE11A0047260F /* ParseTwitterUtils.framework */,
-				AD6901061BECE11A0047260F /* ParseUI.framework */,
 			);
 			name = Dependencies;
 			sourceTree = "<group>";
@@ -486,6 +444,15 @@
 				ADF0AC9A1E2F76630083BAD2 /* THUrbanAirship.m */,
 			);
 			name = UrbanAirship;
+			sourceTree = "<group>";
+		};
+		ADF0ACA11E30C1360083BAD2 /* AWS */ = {
+			isa = PBXGroup;
+			children = (
+				ADF0ACA21E30C1540083BAD2 /* THAWSServer.h */,
+				ADF0ACA31E30C1540083BAD2 /* THAWSServer.m */,
+			);
+			name = AWS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -673,14 +640,13 @@
 				AD6900D41BECDDB90047260F /* NSString+Additions.m in Sources */,
 				AD6900E11BECDE030047260F /* THCoreLogic.m in Sources */,
 				AD6900FC1BECDEB40047260F /* THTodayModel.m in Sources */,
-				AD6900F21BECDE5D0047260F /* THParseServer.m in Sources */,
 				AD6901241BEDF0140047260F /* THTodayTVC.m in Sources */,
 				AD6900871BECD0150047260F /* AppDelegate.m in Sources */,
 				AD6900C51BECD1BB0047260F /* DCTheme.m in Sources */,
 				AD6900DB1BECDDEB0047260F /* THConstants.m in Sources */,
+				ADF0ACA41E30C1540083BAD2 /* THAWSServer.m in Sources */,
 				AD6900CB1BECDACE0047260F /* History.xcdatamodeld in Sources */,
 				AD6900D11BECDD970047260F /* NSManagedObject+Converter.m in Sources */,
-				AD6900D81BECDDD40047260F /* PFObject+Additions.m in Sources */,
 				AD6900F61BECDE6B0047260F /* THServerManager.m in Sources */,
 				AD6900E01BECDE030047260F /* THCoreConstants.m in Sources */,
 				AD6900E91BECDE140047260F /* THDataSourceCD.m in Sources */,

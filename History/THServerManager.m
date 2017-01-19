@@ -1,5 +1,5 @@
 #import "THServerManager.h"
-#import "THParseServer.h"
+#import "THAWSServer.h"
 
 @implementation THServerManager
 
@@ -10,7 +10,7 @@
     static id<THServerProtocol> inst = nil;
     static dispatch_once_t token;
     dispatch_once(&token, ^{
-        inst = [[THParseServer alloc] init];
+        inst = [THAWSServer new];
     });
     return inst;
 }

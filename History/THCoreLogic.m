@@ -134,7 +134,6 @@ typedef enum : NSUInteger {
 
 - (void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-	[self.serverManager handlePushNotificationDeviceToken:deviceToken];
 	[self setPushNotificationAcceptanceStatus:PushNotificationAcceptanceAccepted];
 }
 
